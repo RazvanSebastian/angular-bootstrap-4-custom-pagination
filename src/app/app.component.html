@@ -9,21 +9,24 @@
         <a class="page-link" href="#">Previous</a>
       </li>
       <ng-container *ngFor="let item of array; index as i">
+        <!-- Show left dots on middle -->
         <li class="page-item" *ngIf="i === selected - 2 && selected >= 3">
           <a class="page-link">...</a>
         </li>
+        <!-- Selected page; on middle we want to show only the 2 page index neighbours and the first and last page index -->
         <li
           class="page-item"
           [ngClass]="{ active: array[i] }"
           [hidden]="
             (i >= selected + 3 || i < selected - 2) &&
-            i !== pages - 1 &&
-            i !== 0
+            i !== 0 &&
+            i !== pages - 1
           "
           (click)="selectPage(i)"
         >
           <a class="page-link" href="#">{{ i + 1 }}</a>
         </li>
+        <!-- Show right dots on middle -->
         <li
           class="page-item"
           *ngIf="i === selected + 3 && selected <= pages - 5"
