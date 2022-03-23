@@ -10,7 +10,7 @@
       </li>
       <ng-container *ngFor="let item of array; index as i">
         <!-- Show left dots on middle -->
-        <li class="page-item" *ngIf="i === selected - 2 && selected >= 3">
+        <li class="page-item" *ngIf="i === selected - 2 && selected >= 4">
           <a class="page-link">...</a>
         </li>
         <!-- Selected page; on middle we want to show only the 2 page index neighbours and the first and last page index -->
